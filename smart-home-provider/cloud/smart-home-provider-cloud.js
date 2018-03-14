@@ -25,7 +25,7 @@ const authProvider = require('./auth-provider');
 const config = require('./config-provider');
 
 // Check that the API key was changed from the default
-if (config.smartHomeProviderApiKey === '<API_KEY>') {
+if (config.smartHomeProviderApiKey === 'AIzaSyAlTbjrhAK-pRm7TaABQm2qKw0fcpCOLD8') {
   console.warn('You need to set the API key in config-provider.\n' +
     'Visit the Google Cloud Console to generate an API key for your project.\n' +
     'https://console.cloud.google.com\n' +
