@@ -31,11 +31,11 @@ restService.post("/IoT", function(req, res) {
     req.body.result.parameters.state
       ? req.body.result.parameters.state
       : "Seems like some problem. Speak again.";
-      if(status=="on")
+      if(state=="on"||state=="ON")
       {
           value=1;
       }
-      else {
+      if(state=="off"||state=="OFF") {
         value=0;
       }
 var database = firebase.database();
