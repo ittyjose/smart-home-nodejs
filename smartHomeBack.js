@@ -24,15 +24,23 @@ restService.use(
 restService.use(bodyParser.json());
 
 restService.post("/IoT", function(req, res) {
+  var value;
   var state =
     req.body.result &&
     req.body.result.parameters &&
     req.body.result.parameters.state
       ? req.body.result.parameters.state
       : "Seems like some problem. Speak again.";
+      if(status=="on")
+      {
+          value=1;
+      }
+      else {
+        value=0;
+      }
 var database = firebase.database();
     firebase.database().ref('smartHome').set({
-    light: status,
+    light: value,
     
   });
 var res="Your device is "+status;
