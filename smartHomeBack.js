@@ -33,11 +33,11 @@ restService.post("/IoT", function(req, res) {
   var value;
   if(state=="on")
   {
-    value="1";
+    value=1;
   }
   if(state=="off")
   {
-    valie="0";
+    value=0;
   }
   
   
