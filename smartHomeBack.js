@@ -2,6 +2,16 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
+ar firebase = require("firebase");
+var config = {
+  apiKey: "AIzaSyB3wIlsmFHyofbazQ0LS6wPH5rJGL9Si6A",
+  authDomain: "aqueous-tube-168615.firebaseapp.com",
+  databaseURL: "https://aqueous-tube-168615.firebaseio.com",
+  projectId: "aqueous-tube-168615",
+  storageBucket: "aqueous-tube-168615.appspot.com",
+  messagingSenderId: "1073704194948"
+}
+firebase.initializeApp(config);
 
 const restService = express();
 
@@ -20,6 +30,21 @@ restService.post("/IoT", function(req, res) {
     req.body.result.parameters.state
       ? req.body.result.parameters.state
       : "Seems like some problem. Speak again.";
+  var value;
+  if(state=="on"||state=="ON")
+     {
+       value=1;
+     }
+  if(state=="off"||state=="OFF")
+  {
+    value=0;
+  }
+    
+  var database = firebase.database();
+    firebase.database().ref('smartHome').set({
+    light: value,
+    
+  });
   return res.json({
     speech: state,
     displayText: state,
