@@ -14,28 +14,19 @@ restService.use(
 restService.use(bodyParser.json());
 
 restService.post("/IoT", function(req, res) {
-  var value;
   var state =
     req.body.result &&
     req.body.result.parameters &&
     req.body.result.parameters.state
       ? req.body.result.parameters.state
       : "Seems like some problem. Speak again.";
-      if(state=="on"||state=="ON")
-      {
-          value=1;
-      }
-      if(state=="off"||state=="OFF") {
-        value=0;
-      }
-
-var res="Your device is "+status;
   return res.json({
-    speech: res,
-    displayText: res,
+    speech: state,
+    displayText: state,
     source: "webhook-echo-sample"
   });
 });
+
 restService.post("/audio", function(req, res) {
   var speech = "";
   switch (req.body.result.parameters.AudioSample.toLowerCase()) {
