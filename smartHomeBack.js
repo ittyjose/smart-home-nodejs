@@ -3,7 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 var firebase = require("firebase");
-ar config = {
+var config = {
   apiKey: "AIzaSyB3wIlsmFHyofbazQ0LS6wPH5rJGL9Si6A",
   authDomain: "aqueous-tube-168615.firebaseapp.com",
   databaseURL: "https://aqueous-tube-168615.firebaseio.com",
