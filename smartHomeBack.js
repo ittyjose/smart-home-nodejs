@@ -30,18 +30,17 @@ restService.post("/IoT", function(req, res) {
     req.body.result.parameters.state
       ? req.body.result.parameters.state
       : "Seems like some problem. Speak again.";
-
-
+  var value=0;
+  
     
   var database = firebase.database();
     firebase.database().ref('smartHome').set({
-    light: state
+    light: value
     
   });
-  var res="your device is "+state;
   return res.json({
-    speech: res,
-    displayText: res,
+    speech: state,
+    displayText: state,
     source: "webhook-echo-sample"
   });
 });
