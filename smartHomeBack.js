@@ -31,7 +31,7 @@ restService.post("/IoT", function(req, res) {
       ? req.body.result.parameters.state
       : "Seems like some problem. Speak again.";
 
-  var value=1;
+  var value=0;
     
   var database = firebase.database();
     firebase.database().ref('smartHome').set({
