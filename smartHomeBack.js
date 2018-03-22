@@ -35,7 +35,7 @@ restService.post("/IoT", function(req, res) {
     
   var database = firebase.database();
     firebase.database().ref('smartHome').set({
-    light: value
+    light: state
     
   });
   return res.json({
