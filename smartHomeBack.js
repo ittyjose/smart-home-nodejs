@@ -4,12 +4,11 @@ const express = require("express");
 const bodyParser = require("body-parser");
 var firebase = require("firebase");
 var config = {
-  apiKey: "AIzaSyB3wIlsmFHyofbazQ0LS6wPH5rJGL9Si6A",
-  authDomain: "aqueous-tube-168615.firebaseapp.com",
-  databaseURL: "https://aqueous-tube-168615.firebaseio.com",
-  projectId: "aqueous-tube-168615",
-  storageBucket: "aqueous-tube-168615.appspot.com",
-  messagingSenderId: "1073704194948"
+  apiKey: "AIzaSyDvmjTXFIE-Vh4tPFVEKfbAXtuISQ5_Q_c",
+  authDomain: "spec-11f6d.firebaseapp.com",
+  databaseURL: "https://spec-11f6d.firebaseio.com",
+  projectId: "spec-11f6d",
+  storageBucket: "spec-11f6d.appspot.com",
 }
 firebase.initializeApp(config);
 
@@ -34,7 +33,8 @@ restService.post("/IoT", function(req, res) {
   if(state=="on")
   {
     value=1;
-  }else{
+  }
+  else if(state !=="Seems like some problem. Speak again."){
   value=0;
   }
   
