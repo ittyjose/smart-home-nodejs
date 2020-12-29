@@ -23,12 +23,12 @@ restService.use(
 restService.use(bodyParser.json());
 
 restService.post("/IoT", function(req, res) {
-  var state =
-    req.body.result &&
-    req.body.result.parameters &&
-    req.body.result.parameters.state
-      ? req.body.result.parameters.state
-      : "Seems like some problem. Speak again.";
+  var state = req.body &&
+              req.body.queryResult &&
+              req.body.queryResult.parameters &&
+              req.body.queryResult.parameters.state
+              ? req.body.queryResult.parameters.state
+              : "Seems like some problem. Speak again.";
   var value;
   if(state=="on")
   {
