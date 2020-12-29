@@ -38,12 +38,13 @@ restService.post("/IoT", function(req, res) {
   value=0;
   }
   
-    
+    if(value===1||value===0){
   var database = firebase.database();
     firebase.database().ref('smartHome').set({
     light: value
     
   });
+}
   return res.json({
     speech: state,
     displayText: state,
